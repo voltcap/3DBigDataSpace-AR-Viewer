@@ -23,7 +23,8 @@ import { AR_MAX_DIMENSION_METERS } from '$lib/utils/arScaling'
 // Allowed domains for GLB files
 const ALLOWED_DOMAINS = [
 	'zenodo.org',
-	'files.zenodo.org'
+	'files.zenodo.org',
+	'venerisintelligence.uk'
 ]
 
 export async function GET({ url }: RequestEvent) {
