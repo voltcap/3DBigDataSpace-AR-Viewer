@@ -14,6 +14,12 @@
 
 	let savedState = $state<any>(null)
 
+	function getScaledGlbUrl(originalUrl: string): string {
+		const apiUrl = new URL('/api/ar-glb', window.location.origin)
+		apiUrl.searchParams.set('url', originalUrl)
+		return apiUrl.toString()
+	}
+
 	onMount(() => {
 		savedState = loadRecordsState()
 	})
