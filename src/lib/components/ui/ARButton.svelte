@@ -115,8 +115,9 @@
 			href={usdzUrl}
 			rel="ar"
 			style="display: none;"
+			aria-label="View USDZ model in AR"
 		>
-			<img />
+			<img alt="AR Model" />
 		</a>
 	{/if}
 	<div class="absolute bottom-4 right-4" style="z-index: 99999;">
