@@ -25,6 +25,8 @@
 	import type { WebXRDefaultExperience } from '@babylonjs/core/XR/webXRDefaultExperience'
 	import { WebXRState } from '@babylonjs/core/XR/webXRTypes'
 
+	import { DracoCompression } from '@babylonjs/core/Meshes/Compression/dracoCompression'
+
 	import AnnotationTooltip from './AnnotationTooltip.svelte'
 	import ArButton from './ARButton.svelte'
 	import ARPopover from './ARPopover.svelte'
@@ -79,6 +81,12 @@
 				adaptToDeviceRatio: true
 			})
 			scene = new Scene(engine)
+			// Configure Draco decoder
+			DracoCompression.Configuration.decoder = {
+				wasmUrl: 'https://cdn.babylonjs.com/draco_wasm_wrapper_gltf.js',
+				wasmBinaryUrl: 'https://cdn.babylonjs.com/draco_decoder_gltf.wasm',
+				fallbackUrl: 'https://cdn.babylonjs.com/draco_decoder_gltf.js'
+			}
 			camera = new ArcRotateCamera('camera', 0, 0, 0, new Vector3(0, 0, 0), scene)
 			camera.attachControl(canvas, true)
 			isInitialized = true
